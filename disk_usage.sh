@@ -1,5 +1,4 @@
 #!/bin/sh
-#David Durkin disk_usage.sh
 
 while getopts n:a name
 do
@@ -17,7 +16,7 @@ if [[ ! -z $nopt ]]; then
 	
 	for dir in $@; do
 		
-		du -h $dir 2>/dev/null | sort -nr | head -$nopt
+		du -h $dir | sort -nr | head -$nopt
 		
 	done
 
@@ -25,14 +24,14 @@ elif [[ ! -z $aopt ]]; then
 
 	for dir in $@; do
 			
-			du -ah $dir 2>/dev/null | sort -nr | head -10 
+			du -ah $dir | sort -nr | head -10
 
 	done
 
 else
 
 	for dir in $@; do
-		du -h $dir 2>/dev/null | sort -nr | head -10
+		du -h $dir | sort -nr 
 	done
 
 fi
